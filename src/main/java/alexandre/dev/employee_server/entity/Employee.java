@@ -4,8 +4,9 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@AllArgsConstructor
-@NoArgsConstructor
+//@AllArgsConstructor
+//@NoArgsConstructor
+@Data
 @Document(collection = "employees")
 public class Employee {
 
@@ -16,6 +17,18 @@ public class Employee {
     private String email;
     private String phone;
     private String department;
+
+    public Employee(){
+
+    }
+
+    public Employee(String id, String name, String email, String phone, String department) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.department = department;
+    }
 
     public String getName() {
         return name;

@@ -23,9 +23,12 @@ public class EmployeeController {
     }
 
     @GetMapping("/getAll")
-    public List<Employee> getAllEmployees(){
-        return employeeService.getAllEmps();
+    public ResponseEntity<List<Employee>> getAllEmployees() {
+        List<Employee> employees = employeeService.getAllEmps();
+        System.out.println("Retrieved employees: " + employees);
+        return ResponseEntity.ok(employees);
     }
+
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteEmployee(@PathVariable String id){
